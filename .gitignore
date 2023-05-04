@@ -1,0 +1,9 @@
+.venv
+.idea
+__pycache__
+**/R
+**/.Rhistory
+**/.ipynb_checkpoints
+**/*.zip
+**/*.pdf
+data
