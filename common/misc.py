@@ -13,20 +13,6 @@ def bic(fit, n):
     return 2 * fit.fun + np.log(n) * len(fit.x)
 
 
-def second_deriv(f, x0, dx):
-    """Numerically approximate the second derivative using a symmetric difference"""
-    return (f(x0 + dx) - 2 * f(x0) + f(x0 - dx)) / dx ** 2
-
-
-def second_deriv_comp(f, x0, i, dx):
-    """Numerically approximate the second derivative by a component of the input vector"""
-    def f_mod(x):
-        x0c = x0.copy()
-        x0c[i] = x
-        return f(x0c)
-    return second_deriv(f_mod, x0[i], dx)
-
-
 def reduce_model(x, y, fit_f):
     """A simplistic version of the stepAIC function from R's MASS package"""
     while len(x.columns) > 1:
